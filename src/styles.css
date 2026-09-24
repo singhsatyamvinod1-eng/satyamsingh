@@ -26,3 +26,5 @@ main:focus{outline:none}.side-nav>a{gap:10px;padding-left:10px;padding-right:10p
 .cert-card h3{font-size:1.15rem;line-height:1.45;margin:13px 0 auto;font-weight:500}
 .cert-card .inline-row{padding-top:20px}
 @media(max-width:680px){.cert-grid{grid-template-columns:1fr}.cert-card{min-height:0}}
+.profile-cover{background-image:radial-gradient(ellipse at 79% 25%,rgba(134,156,221,.28),transparent 42%),radial-gradient(ellipse at 22% 92%,rgba(54,95,146,.24),transparent 55%),linear-gradient(135deg,#1b2b45 0%,#111b30 58%,#0c1526 100%);background-position:center;background-size:cover}
+.profile-avatar img{object-position:center 38%}

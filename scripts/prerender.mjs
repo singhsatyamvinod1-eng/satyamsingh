@@ -20,9 +20,11 @@ function head(url,p){const canonical=ORIGIN+url;return [
   `<meta property="og:title" content="${esc(p.title)}">`,
   `<meta property="og:description" content="${esc(p.description)}">`,
   `<meta property="og:url" content="${esc(canonical)}">`,
+  `<meta property="og:image" content="${esc(ORIGIN+'/satyam-portrait.png')}">`,
   '<meta name="twitter:card" content="summary">',
   `<meta name="twitter:title" content="${esc(p.title)}">`,
   `<meta name="twitter:description" content="${esc(p.description)}">`,
+  `<meta name="twitter:image" content="${esc(ORIGIN+'/satyam-portrait.png')}">`,
   `<script id="structured-data" type="application/ld+json">${structured(jsonLd(url))}</script>`,
 ].join('\n    ')}
 for(const url of routePaths){const markup=render(url);if(!markup.includes('<h1'))throw new Error(`Missing page heading on ${url}`);const html=template.replace('</head>',`    ${head(url,pages[url])}\n  </head>`).replace('<div id="root"></div>',`<div id="root">${markup}</div>`);const target=url==='/'?path.join(dist,'index.html'):path.join(dist,url.slice(1),'index.html');await fs.mkdir(path.dirname(target),{recursive:true});await fs.writeFile(target,html);if(url!=='/')await fs.writeFile(path.join(dist,`${url.slice(1)}.html`),html);}

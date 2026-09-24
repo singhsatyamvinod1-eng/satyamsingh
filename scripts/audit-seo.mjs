@@ -14,6 +14,7 @@ for(const route of routePaths){
   if(!one(/<h1(?:\s[^>]*)?>/g))failures.push(`${route}: expected one visible h1`);
   if(!html.includes(`<link rel="canonical" href="${ORIGIN}${route}">`))failures.push(`${route}: incorrect canonical`);
   if(!html.includes(`property="og:url" content="${ORIGIN}${route}"`))failures.push(`${route}: incorrect OG URL`);
+  if(!html.includes(`property="og:image" content="${ORIGIN}/satyam-portrait.png"`))failures.push(`${route}: missing portrait social image`);
   const script=html.match(/<script id="structured-data" type="application\/ld\+json">(.*?)<\/script>/s)?.[1];
   try{const value=JSON.parse(script);if(!Array.isArray(value)||!value.length)throw Error()}catch{failures.push(`${route}: invalid structured data`)}
   if(!html.includes('src="/assets/')&&!html.includes('src="/src/entry-client.jsx"'))failures.push(`${route}: missing client entry`);
@@ -23,5 +24,6 @@ for(const route of routePaths){
 const sitemap=fs.readFileSync('dist/sitemap.xml','utf8');for(const route of routePaths)if(!sitemap.includes(`<loc>${ORIGIN}${route}</loc>`))failures.push(`${route}: missing from sitemap`);
 if(!fs.readFileSync('dist/robots.txt','utf8').includes(`${ORIGIN}/sitemap.xml`))failures.push('Missing robots sitemap');
 if(!fs.existsSync('dist/404.html'))failures.push('Missing 404 page');
+if(!fs.existsSync('dist/satyam-portrait.png'))failures.push('Missing portrait asset');
 if(failures.length){console.error(failures.join('\n'));process.exit(1)}
 console.log('Route HTML, metadata, structured data, sitemap and robots checks passed.');

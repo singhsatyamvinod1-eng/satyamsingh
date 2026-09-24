@@ -1,4 +1,14 @@
 // Edit this object to update the published portfolio. Browser edits are device-local drafts.
+// Counted from the owner-shared "S.M Content Calender" sheet, gid 681063913.
+// A dated row is a planned content slot, not proof that a post was published.
+export const contentCalendarEvidence = {
+  name: 'IDSSPL social media content calendar',
+  url: 'https://docs.google.com/spreadsheets/d/1TiNOjy5__hiZA0XcLPL4VLrOEbPHRe8TnjeJ9btWXMY/edit?gid=681063913#gid=681063913',
+  period: '24 Sep – 31 Oct',
+  slots: 34,
+  formats: [{name: 'Static', count: 18}, {name: 'Carousel', count: 12}, {name: 'Reel', count: 4}],
+  approved: 1
+};
 const PORTFOLIO = {
   profile: {
     name: 'Satyam Singh', title: 'Social Media Manager / Digital Marketer', location: 'Mumbai, India',

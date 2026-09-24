@@ -29,6 +29,21 @@ main:focus{outline:none}.side-nav>a{gap:10px;padding-left:10px;padding-right:10p
 .profile-cover{background-image:radial-gradient(ellipse at 79% 25%,rgba(134,156,221,.28),transparent 42%),radial-gradient(ellipse at 22% 92%,rgba(54,95,146,.24),transparent 55%),linear-gradient(135deg,#1b2b45 0%,#111b30 58%,#0c1526 100%);background-position:center;background-size:cover}
 .profile-avatar img{object-position:center 38%}
 .impact-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.calendar-proof{padding:28px;background:radial-gradient(ellipse at 100% 0%,#41557b55,transparent 58%),#172238}
+.calendar-proof-intro{display:flex;justify-content:space-between;align-items:flex-start;gap:30px}
+.calendar-proof-intro h2{font-size:1.7rem;font-weight:500;line-height:1.25;margin:12px 0}
+.calendar-proof-intro p{color:#aebed9;line-height:1.65;max-width:540px;margin:0}
+.calendar-total{min-width:170px;text-align:right;color:#b9c9ef}
+.calendar-total strong{display:block;font:500 4.1rem/1 Manrope,sans-serif;letter-spacing:-4px;color:#dce5ff}
+.calendar-total span{font-size:.8rem}
+.calendar-formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:28px 0 25px}
+.calendar-format>div:first-child{display:flex;justify-content:space-between;gap:10px;font-size:.85rem;color:#c2d0e9;margin-bottom:11px}
+.calendar-format strong{font-weight:500;color:#e0e8ff}
+.calendar-track{height:8px;background:#2b3a55;border-radius:99px;overflow:hidden}
+.calendar-track>span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#91a8df,#c4d0ff)}
+.calendar-proof-footer{border-top:1px solid #35435e;padding-top:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:25px}
+.calendar-proof-footer p{color:#9fafca;font-size:.78rem;line-height:1.6;margin:0;max-width:680px}
+.calendar-proof-footer a{flex-shrink:0}
 .impact-evidence-card{display:flex;flex-direction:column;align-items:flex-start;padding:23px;min-height:220px}
 .impact-evidence-card h3{font-size:1.13rem;line-height:1.35;font-weight:500;margin:14px 0 8px}
 .impact-evidence-card p{line-height:1.6;margin:0 0 20px}
@@ -38,4 +53,4 @@ main:focus{outline:none}.side-nav>a{gap:10px;padding-left:10px;padding-right:10p
 .impact-needs ul{padding-left:22px;margin:0 0 17px;color:#c2cee2;line-height:1.7}
 .impact-needs li+li{margin-top:7px}
 .impact-needs .micro{line-height:1.6;margin-bottom:0}
-@media(max-width:680px){.impact-evidence-grid{grid-template-columns:1fr}.impact-evidence-card{min-height:0}.impact-needs{padding:21px}}
+@media(max-width:680px){.calendar-proof{padding:21px}.calendar-proof-intro{flex-direction:column;gap:22px}.calendar-total{text-align:left}.calendar-formats{grid-template-columns:1fr;gap:18px}.calendar-proof-footer{align-items:flex-start;flex-direction:column}.impact-evidence-grid{grid-template-columns:1fr}.impact-evidence-card{min-height:0}.impact-needs{padding:21px}}

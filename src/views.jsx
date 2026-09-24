@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Avatar,usePortfolio,validExternal,photoSource} from './App.jsx';
 import {Icon} from './icons.jsx';
+import {contentCalendarEvidence} from './data.js';
 
 function PageHead({kicker,title,description,action}){return <header className="page-head"><div><span className="tiny-caps">{kicker}</span><h1>{title}</h1><p>{description}</p></div>{action}</header>}
 function EditButton({kind,index=0,children='Edit'}){const {edit}=usePortfolio();return <button className="button small subtle" onClick={()=>edit(kind,index)}><Icon name="edit"/>{children}</button>}
@@ -18,6 +19,7 @@ export function Skills(){const {data,edit}=usePortfolio(),[filter,setFilter]=use
 
 export function Impact(){
   const {data}=usePortfolio();
+  const calendar=contentCalendarEvidence;
   const evidence=[
     {eyebrow:'LINKEDIN EXPERIENCE',title:'Social channel management',body:'My LinkedIn profile documents social media management at IDSSPL Technologies, including content planning, campaign coordination and reporting.',url:data.profile.linkedin,label:'View LinkedIn profile'},
     {eyebrow:'OWNER-CONFIRMED EXPERIENCE',title:'Social media internship',body:'At 3rd Planet Global, I supported social media management, competitor analysis, trend research and content calendar management. I clarified these duties for this portfolio.',url:data.profile.linkedin,label:'View LinkedIn profile'},
@@ -25,8 +27,13 @@ export function Impact(){
     {eyebrow:'AUTHORED POST',title:'Strategy and marketing point of view',body:'A LinkedIn post about marketing clarity, strategy and AI. It shows how I think about the work.',url:data.content[1]?.link,label:'View original post'}
   ];
   return <>
-    <PageHead kicker="THE IMPACT" title="Evidence before numbers." description="The work I can show today, and the performance data needed to tell the full story." action={<EditButton kind="metrics">Edit metrics</EditButton>}/>
-    <div className="notice">My public LinkedIn profile and posts document experience and creative work. I could not verify campaign reach, engagement growth or leads from those public sources, so no performance result is claimed here.</div>
+    <PageHead kicker="THE IMPACT" title="The plan behind the posts." description="A view of the content planning I can document, with performance results kept separate." action={<EditButton kind="metrics">Edit metrics</EditButton>}/>
+    <section className="calendar-proof panel" aria-labelledby="calendar-title">
+      <div className="calendar-proof-intro"><div><span className="tiny-caps">OWNER-SHARED PLANNING EVIDENCE · IDSSPL</span><h2 id="calendar-title">A calendar built for consistency.</h2><p>{calendar.name} covers {calendar.period}. It maps topics across core banking, digital payments and financial inclusion into a mix of formats.</p></div><div className="calendar-total"><strong>{calendar.slots}</strong><span>dated content slots</span></div></div>
+      <div className="calendar-formats" aria-label="Planned content by format">{calendar.formats.map(format=><div className="calendar-format" key={format.name}><div><span>{format.name}</span><strong>{format.count}</strong></div><div className="calendar-track"><span style={{width:`${format.count/calendar.slots*100}%`}}/></div></div>)}</div>
+      <div className="calendar-proof-footer"><p>Counted rows with a date and content topic. These are planned slots, not published posts or performance results. One row is marked “Done” in the Approval column; the sheet does not show reach, engagement, impressions or leads. The year is not specified in the sheet.</p><a className="text-link" href={calendar.url} target="_blank" rel="noopener noreferrer">View source calendar <Icon name="external"/></a></div>
+    </section>
+    <div className="notice">The calendar documents planning output. My public LinkedIn profile and posts document experience and creative work. Campaign performance still needs platform analytics before I can claim results.</div>
     <div className="section-title"><div><span className="tiny-caps">PUBLIC EVIDENCE</span><h2>What LinkedIn documents</h2></div></div>
     <div className="impact-evidence-grid">{evidence.map(item=><article className="impact-evidence-card panel" key={item.title}><span className="tiny-caps">{item.eyebrow}</span><h3>{item.title}</h3><p className="micro">{item.body}</p>{validExternal(item.url)&&<a className="text-link" href={validExternal(item.url)} target="_blank" rel="noopener noreferrer">{item.label} <Icon name="external"/></a>}</article>)}</div>
     <div className="section-title"><div><span className="tiny-caps">MEASURED OUTCOMES</span><h2>Results awaiting evidence</h2></div><span className="micro">No sample or estimated figures</span></div>

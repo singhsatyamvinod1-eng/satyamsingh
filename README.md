@@ -33,7 +33,7 @@ The build writes `dist/`, including page HTML at `/work`, `/skills`, `/impact`, 
 
 The name, Mumbai location, headline, work at IDSSPL Technologies and 3rd Planet Global, responsibilities, platform experience, education and listed skills come from the user's [LinkedIn profile](https://www.linkedin.com/in/satyam-singh77/). Teqfox Fintech Solutions work history was supplied directly by Satyam. The work page includes LinkedIn-sourced experience highlights and authored posts; these are labelled as such, not presented as client campaigns. The HubSpot certifications are based on his own LinkedIn posts. The portrait was edited from a user-supplied image to replace the indoor background with a studio backdrop.
 
-Exact employment dates, the Teqfox role and responsibilities, client campaigns and results, skill ratings, contact email and phone still need owner input. The dashboard's sample charts are labelled illustrative and are not connected to an analytics account. The chrome artwork is original abstract decorative art, not a claimed client campaign.
+Exact employment dates, the Teqfox role and responsibilities, client campaigns and results, skill ratings, contact email and phone still need owner input. The Impact page links to LinkedIn evidence and leaves performance metrics empty until supported by an analytics export or screenshot with a date range and campaign context. Browser-entered metric values remain local drafts until exported and published. The chrome artwork is original abstract decorative art, not a claimed client campaign.
 
 ## Contact
 

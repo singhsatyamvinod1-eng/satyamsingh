@@ -26,14 +26,14 @@ The build writes `dist/`, including page HTML at `/work`, `/skills`, `/impact`, 
 - Edit the published content in `src/data.js`, or use the cards' **Edit** controls to make browser-local drafts.
 - Browser drafts stay on that device. To publish one, choose **Download content**, replace `src/data.js` with the downloaded file, build, and deploy again.
 - Edit the profile to add your actual photo (PNG, JPEG or WebP, up to 2 MB), email, phone and social links. A photo chosen through the editor stays in the local browser until exported and published.
-- Case studies, content gallery, skills, platform experience, metrics, journey and work principles have edit controls.
+- Case studies, content gallery, skills, platform experience, metrics, journey, education, certifications and work principles have edit controls.
 - Profile name, metadata and JSON-LD in `src/seo.js` are based on the currently confirmed public details; update those along with `src/data.js` if the published identity changes.
 
 ## Confirmed information and placeholders
 
-The name, Mumbai location, social media background and IDSSPL Technologies listing came from the user's supplied public [LinkedIn profile](https://www.linkedin.com/in/satyam-singh77/). The original profile photo was not accessible. The SS monogram remains until the actual image is supplied. No substitute person was generated.
+The name, Mumbai location, headline, work at IDSSPL Technologies and 3rd Planet Global, responsibilities, platform experience, education and listed skills come from the user's [LinkedIn profile](https://www.linkedin.com/in/satyam-singh77/). The HubSpot certifications are based on the user's own LinkedIn posts. The SS monogram remains until the user provides a photo to publish.
 
-Specific roles, dates, clients, campaign results, skill ratings, platform experience, email and phone are marked placeholders. The dashboard's sample charts are labelled illustrative and are not connected to an analytics account. The chrome artwork is original abstract decorative art, not a claimed client campaign.
+Exact employment dates, clients, campaign examples and results, skill ratings, contact email, phone and the profile image still need owner input. The dashboard's sample charts are labelled illustrative and are not connected to an analytics account. The chrome artwork is original abstract decorative art, not a claimed client campaign.
 
 ## Contact
 

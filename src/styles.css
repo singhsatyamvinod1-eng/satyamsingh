@@ -21,3 +21,8 @@
 .message-preview{border-top:1px solid var(--line);margin-top:28px;padding-top:24px}.message-preview>h2{font-size:1.25rem}
 @media(max-width:680px){.profile-cover{background-image:linear-gradient(90deg,#111d35f0,#172139b0 70%,#101b2b55),url('/chrome-loop.png')}.react-modal{padding:21px}}
 main:focus{outline:none}.side-nav>a{gap:10px;padding-left:10px;padding-right:10px;position:relative}.side-nav .nav-dot{position:absolute;right:10px;margin-left:0}.sidebar::-webkit-scrollbar{width:4px}.sidebar::-webkit-scrollbar-thumb{background:#34415c;border-radius:4px}
+.cert-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 12px}
+.cert-card{padding:22px;display:flex;flex-direction:column;min-height:180px}
+.cert-card h3{font-size:1.15rem;line-height:1.45;margin:13px 0 auto;font-weight:500}
+.cert-card .inline-row{padding-top:20px}
+@media(max-width:680px){.cert-grid{grid-template-columns:1fr}.cert-card{min-height:0}}

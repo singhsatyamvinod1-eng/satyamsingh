@@ -8,6 +8,7 @@ import {Profile,Work,Skills,Impact,Journey,About,Contact,NotFound,CampaignArt} f
 const PortfolioContext=createContext(null);
 export const usePortfolio=()=>useContext(PortfolioContext);
 export const validExternal=value=>{if(typeof value!=='string'||!value.trim())return '';try{const u=new URL(value);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}};
+const linkedinEmbedUrl=value=>{const url=validExternal(value),match=url.match(/linkedin\.com\/feed\/update\/(urn:li:activity:\d+)/i);return match?`https://www.linkedin.com/embed/feed/update/${match[1]}`:''};
 export const photoSource=value=>{
   if(typeof value!=='string')return '';
   if(/^data:image\/(png|jpeg|webp);base64,/.test(value))return value;
@@ -51,9 +52,9 @@ function ProjectDetail({data,index,edit}){
 }
 
 function ContentDetail({data,index,edit}){
-  const item=data.content[index],src=photoSource(item.image);
+  const item=data.content[index],src=photoSource(item.image),embed=linkedinEmbedUrl(item.link);
   return <><h2 id="dialog-title">{item.title}</h2><p className="muted">{item.type} · {item.platform}</p>
-    {src?<img className="detail-image" src={src} alt={item.title}/>:<div className="media-placeholder"><Icon name="message"/><span>TEXT-LED LINKEDIN POST</span></div>}
+    {src?<img className="detail-image" src={src} alt={item.title}/>:embed?<div className="linkedin-embed"><iframe src={embed} title={`LinkedIn post: ${item.title}`} loading="lazy" allowFullScreen/></div>:<div className="media-placeholder"><Icon name="message"/><span>POST PREVIEW NOT AVAILABLE</span></div>}
     <div className="detail-grid">{['objective','reach','engagement','contribution'].map(k=><section key={k}><h3>{labels[k]}</h3><p>{item[k]}</p></section>)}<section><h3>Work example</h3><p>{data.projects[item.campaign]?.name||'LinkedIn post'}</p></section></div>
     <div className="inline-row">{validExternal(item.link)&&<a className="button" href={validExternal(item.link)} target="_blank" rel="noopener noreferrer">View original <Icon name="external"/></a>}<button className="button small" onClick={()=>edit('content',index)}>Edit content</button></div>
   </>

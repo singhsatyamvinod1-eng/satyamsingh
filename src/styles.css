@@ -187,3 +187,52 @@ main:focus{outline:none}.side-nav>a{gap:10px;padding-left:10px;padding-right:10p
   .profile-cover .cover-index{right:16px;bottom:14px}
 }
 @media(max-width:430px){.cover-signal{right:-57px;opacity:.62}.cover-copy{max-width:82%}}
+
+/* Personal identity and working header navigation. */
+.brand{margin-left:8px;margin-right:8px;font-size:1.82rem;letter-spacing:-1.1px}
+.brand-mark{
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  margin-right:10px;
+  flex:0 0 36px;
+  overflow:hidden;
+  border:1px solid rgba(177,194,255,.48);
+  border-radius:12px;
+  background:conic-gradient(from 210deg,#79d4cf,#a6b5ff 42%,#566b9d 72%,#79d4cf);
+  box-shadow:0 10px 28px rgba(66,87,146,.24);
+}
+.brand-mark::before{content:'';position:absolute;inset:2px;border-radius:9px;background:linear-gradient(145deg,#172640,#0d1729)}
+.brand-mark::after{content:'';position:absolute;width:5px;height:5px;right:5px;bottom:5px;border-radius:50%;background:#8edbd5;box-shadow:0 0 10px #8edbd5}
+.brand-mark>span{position:relative;z-index:1;font:750 1.15rem/1 Manrope,sans-serif;color:#e5eaff;letter-spacing:-.5px}
+.brand-word{font-family:Manrope,sans-serif;font-weight:750}
+.breadcrumb>a,.portfolio-label{transition:color .2s,transform .2s}
+.breadcrumb>a:hover,.portfolio-label:hover{color:#e8edff}
+.breadcrumb>a:active,.portfolio-label:active{transform:translateY(1px)}
+.portfolio-label{display:inline-flex;align-items:center;gap:7px}
+.portfolio-label>span{margin-left:0}
+
+/* Keep the social-signal artwork grouped on the right of the cover. */
+.cover-copy{max-width:calc(100% - 220px)}
+.cover-signal{right:24px;width:176px;height:176px}
+.signal-chip-a{left:17px;top:5px}
+.signal-chip-b{right:-1px;top:35px}
+.signal-chip-c{right:8px;bottom:9px}
+@media(min-width:1500px){.cover-signal{right:32px;width:198px;height:198px}.cover-copy{max-width:calc(100% - 250px)}}
+@media(max-width:820px) and (min-width:681px){.cover-signal{right:18px;width:162px;height:162px}.cover-copy{max-width:calc(100% - 205px)}}
+@media(max-width:680px){.cover-copy{max-width:72%}.cover-signal{right:-40px;width:154px;height:154px}.signal-chip{display:none}}
+@media(max-width:430px){.cover-copy{max-width:80%}.cover-signal{right:-50px;width:148px;height:148px}}
+
+/* The contact form now ends in a visible, actionable LinkedIn handoff. */
+.contact-form>.button.primary{min-width:210px}
+.message-preview{margin-top:28px;padding:24px;border:1px solid #354766;border-radius:14px;background:radial-gradient(circle at 100% 0%,rgba(121,212,207,.11),transparent 35%),linear-gradient(145deg,#16223a,#101827)}
+.message-preview-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.message-preview-head h2{font-size:1.3rem;margin:6px 0 0}
+.message-status{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;padding:6px 10px;border:1px solid #455a80;border-radius:99px;color:#bac8e5;font-size:.72rem}
+.message-status .icon{width:15px;height:15px}
+.message-status.is-copied{border-color:#4d827f;color:#9fe2dc;background:rgba(82,159,153,.1)}
+.message-draft{min-height:190px;background:#0a1425;border-color:#405574;line-height:1.65}
+.contact-message-actions{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:680px){.message-preview{padding:19px}.message-preview-head{flex-direction:column;gap:12px}.contact-message-actions{flex-direction:column}.contact-message-actions .button{width:100%}}

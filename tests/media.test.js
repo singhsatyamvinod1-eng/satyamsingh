@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {access} from 'node:fs/promises';
 import portfolio from '../src/data.js';
 import {postImageSources, restorePostImage, photoSource} from '../src/media.js';
+import {hydratePortfolio} from '../src/migration.js';
 
 test('old saved drafts show the correct artwork even with blank image fields', () => {
   const stale = portfolio.content.map(item => ({...item, image: ''})).reverse();
@@ -51,4 +52,33 @@ test('all imported originals are present in the public folder', async () => {
     const [src] = postImageSources({...item, image: ''});
     await access(new URL(`../public${src}`, import.meta.url));
   }
+});
+
+test('an older browser draft receives newly verified facts without losing owner edits', () => {
+  const saved = structuredClone(portfolio);
+  saved.profile.bio = 'My custom biography';
+  saved.projects[0].objective = 'My custom project objective';
+  saved.projects[0].results = 'No campaign-specific results have been shared publicly.';
+  saved.content[1].reach = 'Not shared';
+  saved.content[1].engagement = 'Not shared';
+  saved.journey[0].duration = 'Current · exact dates to confirm';
+  saved.journey[0].campaigns = 'Content planning and campaign coordination; case studies to add.';
+  saved.journey[1] = {
+    ...saved.journey[1],
+    role: 'Role to confirm',
+    duration: 'Previous · dates to confirm',
+    responsibilities: 'Work history supplied by Satyam; responsibilities to confirm.'
+  };
+
+  const hydrated = hydratePortfolio(saved, portfolio);
+  assert.equal(hydrated.profile.bio, 'My custom biography');
+  assert.equal(hydrated.projects[0].objective, 'My custom project objective');
+  assert.match(hydrated.projects[0].results, /84 impressions/);
+  assert.match(hydrated.projects[0].link, /7509122528544636928/);
+  assert.equal(hydrated.content[1].reach, '223 impressions');
+  assert.equal(hydrated.content[1].engagement, '4 reactions');
+  assert.equal(hydrated.journey[0].duration, 'Jul 2026 – Present');
+  assert.match(hydrated.journey[0].campaigns, /Creator shortlisting/);
+  assert.equal(hydrated.journey[1].role, 'Intern');
+  assert.equal(hydrated.journey[1].duration, 'Mar 2025 – Aug 2025');
 });

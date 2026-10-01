@@ -8,8 +8,11 @@ Install Node.js 20.19+ or 22.12+ and pnpm, then:
 
 ```sh
 pnpm install
+copy .env.example .env.local
 pnpm dev
 ```
+
+Set `GMAIL_USER`, `GMAIL_APP_PASSWORD` and `CONTACT_TO_EMAIL` in `.env.local` before starting the site. The app password stays on the Node server and is never sent to the browser. Use `pnpm verify:smtp` to check the Gmail connection.
 
 For a production build and SEO output check:
 
@@ -33,11 +36,13 @@ The build writes `dist/`, including page HTML at `/work`, `/skills`, `/impact`, 
 
 The name, Mumbai location, headline, work history, platform experience, education and listed skills come from the user's [LinkedIn profile](https://www.linkedin.com/in/satyam-singh77/). Satyam directly clarified that his 3rd Planet Global role was a social media internship focused on social media management, competitor analysis, trend research and content calendar management. Teqfox Fintech Solutions work history was also supplied directly by Satyam. The work page labels LinkedIn-sourced posts and owner-confirmed experience separately; neither is presented as a client campaign. The HubSpot certifications are based on his own LinkedIn posts. The portrait was edited from a user-supplied image to replace the indoor background with a studio backdrop.
 
-Exact employment dates, the Teqfox role and responsibilities, client campaigns and results, skill ratings, contact email and phone still need owner input. The Impact page summarizes the owner-shared IDSSPL content calendar: 34 dated planning slots from 24 Sep to 31 Oct (18 static, 12 carousel, 4 reel). The sheet does not specify a year or prove publication or performance; only one Approval cell is marked Done. Performance metrics remain empty until supported by an analytics export or screenshot with a date range and campaign context. Browser-entered metric values remain local drafts until exported and published. The chrome artwork is original abstract decorative art, not a claimed client campaign.
+Exact employment dates, the Teqfox role and responsibilities, client campaigns and results, skill ratings and phone still need owner input. The Impact page summarizes the owner-shared IDSSPL content calendar: 34 dated planning slots from 24 Sep to 31 Oct (18 static, 12 carousel, 4 reel). The sheet does not specify a year or prove publication or performance; only one Approval cell is marked Done. Performance metrics remain empty until supported by an analytics export or screenshot with a date range and campaign context. Browser-entered metric values remain local drafts until exported and published. The chrome artwork is original abstract decorative art, not a claimed client campaign.
 
 ## Contact
 
-With a real email in the profile, the form prepares an email draft in the visitor's email app. Without one, it shows a copyable message for LinkedIn. The site sends nothing automatically and stores no visitor contact message on a server.
+The contact form sends messages through the local Node/Nodemailer server to the configured Gmail inbox and shows a success dialog only after Gmail accepts the message. The inbox email uses the visitor's address as Reply-To and includes a direct reply button. The visitor also receives an automatic thank-you email. Credentials live only in ignored `.env.local`; `.env.example` contains safe placeholders. The endpoint validates input, escapes rendered message content, uses a hidden bot trap and rate-limits repeated submissions.
+
+The prerendered build remains static, so a public deployment needs a Node-capable host (or an equivalent serverless `/api/contact` function) plus the same environment variables for live email delivery.
 
 ## SEO
 

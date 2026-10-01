@@ -98,7 +98,7 @@ export function Impact(){
   const calendar=contentCalendarEvidence;
   const evidence=[
     {eyebrow:'LINKEDIN EXPERIENCE',title:'Social channel management',body:'My LinkedIn profile documents social media management at IDSSPL Technologies, including content planning, campaign coordination and reporting.',url:data.profile.linkedin,label:'View LinkedIn profile'},
-    {eyebrow:'LINKEDIN EXPERIENCE',title:'Social media internship',body:'LinkedIn documents my 3rd Planet Global OJT internship in social media and performance marketing, including competitor research, trend research, content planning and reporting.',url:'https://www.linkedin.com/in/satyam-singh77/details/experience/',label:'View LinkedIn experience'},
+    {eyebrow:'LINKEDIN EXPERIENCE · OWNER-CONFIRMED DUTIES',title:'Social media internship',body:'My 3rd Planet Global OJT internship covered social media management, competitor analysis, trend research and content calendar management.',url:'https://www.linkedin.com/in/satyam-singh77/details/experience/',label:'View LinkedIn experience'},
     {eyebrow:'AUTHORED POST',title:'Tropical Escape concept',body:'An independently published travel-promotion concept. It demonstrates creative direction and copy; it does not claim client results.',url:data.content[0]?.link,label:'View original post'},
     {eyebrow:'AUTHORED POST · POST-LEVEL RESULT',title:'Strategy and marketing point of view',body:'My LinkedIn post about marketing clarity, strategy and AI recorded 223 impressions and 4 reactions when reviewed on 1 Oct 2026.',url:data.content[1]?.link,label:'View original post'}
   ];

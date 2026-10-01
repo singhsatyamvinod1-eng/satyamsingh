@@ -14,13 +14,11 @@ export const contentCalendarEvidence = {
 // Planning counts are deliberately kept separate from account-wide performance.
 export const verifiedImpactMetrics = [
   {label: 'Planned content slots', value: '34', source: 'IDSSPL content calendar'},
-  {label: 'Static concepts planned', value: '18', source: 'IDSSPL content calendar'},
-  {label: 'Carousel concepts planned', value: '12', source: 'IDSSPL content calendar'},
-  {label: 'Reel concepts planned', value: '4', source: 'IDSSPL content calendar'},
+  {label: 'Planning cadence', value: '6.3/wk', source: '34 slots across a 38-day calendar'},
+  {label: 'Calendar coverage', value: '38 days', source: '24 Sep–31 Oct'},
   {label: 'Social channels managed', value: '4', source: 'LinkedIn profile · Instagram, Facebook, LinkedIn and X'},
-  {label: 'Calendar rows marked Done', value: '1', source: 'IDSSPL calendar Approval column'},
-  {label: 'Post impressions', value: '223', source: 'LinkedIn post · reviewed 1 Oct 2026'},
-  {label: 'Post reactions', value: '4', source: 'LinkedIn post · reviewed 1 Oct 2026'}
+  {label: 'Content formats planned', value: '3', source: 'Static, carousel and reel'},
+  {label: 'Carousel + reel mix', value: '47%', source: '16 of 34 planned slots'}
 ];
 const PORTFOLIO = {
   profile: {

@@ -236,3 +236,78 @@ main:focus{outline:none}.side-nav>a{gap:10px;padding-left:10px;padding-right:10p
 .message-draft{min-height:190px;background:#0a1425;border-color:#405574;line-height:1.65}
 .contact-message-actions{display:flex;gap:10px;flex-wrap:wrap}
 @media(max-width:680px){.message-preview{padding:19px}.message-preview-head{flex-direction:column;gap:12px}.contact-message-actions{flex-direction:column}.contact-message-actions .button{width:100%}}
+
+/* Ambient motion system shared by every portfolio section. */
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(circle at 18% 12%,rgba(110,134,211,.07),transparent 25%),
+    radial-gradient(circle at 86% 72%,rgba(78,184,181,.05),transparent 24%);
+  background-size:130% 130%,145% 145%;
+  animation:page-ambient 22s ease-in-out infinite alternate;
+}
+.post.panel,.skill-overview,.analytics-card,.calendar-proof,.journey-card,.philosophy-card,.about-footer,.contact-card{
+  position:relative;
+  isolation:isolate;
+}
+.post.panel::before,.skill-overview::before,.analytics-card::before,.calendar-proof::before,.journey-card::before,.philosophy-card::before,.about-footer::before,.contact-card::before{
+  content:'';
+  position:absolute;
+  z-index:-1;
+  width:270px;
+  height:270px;
+  right:-115px;
+  top:-125px;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:.28;
+  background:
+    radial-gradient(circle at center,rgba(144,169,239,.3),rgba(104,210,203,.09) 42%,transparent 70%);
+  filter:blur(3px);
+  animation:section-glow-drift 11s ease-in-out infinite alternate;
+}
+.post.panel:nth-of-type(even)::before,.philosophy-card:nth-child(even)::before,.journey-item:nth-child(even) .journey-card::before{animation-delay:-5.5s;right:auto;left:-125px;background:radial-gradient(circle at center,rgba(89,202,196,.23),rgba(120,145,220,.08) 45%,transparent 70%)}
+.skill-overview::before,.calendar-proof::before,.about-footer::before{width:360px;height:360px;opacity:.34;animation-duration:14s}
+.analytics-card::before,.contact-card::before{top:auto;bottom:-145px;right:-90px;animation-duration:16s}
+
+/* The Work cards use a stronger animated grid and orbit. */
+.experience-art{isolation:isolate;background-size:125% 125%;animation:experience-gradient 12s ease-in-out infinite alternate}
+.experience-art::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.24;
+  background-image:
+    linear-gradient(rgba(174,192,245,.1) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(174,192,245,.1) 1px,transparent 1px);
+  background-size:30px 30px;
+  animation:experience-grid 15s linear infinite;
+}
+.experience-art::after{
+  content:'';
+  position:absolute;
+  z-index:-1;
+  width:250px;
+  height:250px;
+  right:-72px;
+  top:-105px;
+  border:1px solid rgba(167,190,246,.25);
+  border-radius:50%;
+  pointer-events:none;
+  opacity:.72;
+  box-shadow:
+    0 0 0 36px rgba(148,172,232,.035),
+    0 0 0 72px rgba(89,197,192,.018),
+    inset 0 0 50px rgba(125,159,227,.08);
+  animation:experience-orbit 10s ease-in-out infinite alternate;
+}
+.experience-art-1::after{border-color:rgba(131,216,208,.3);box-shadow:0 0 0 36px rgba(99,194,187,.04),0 0 0 72px rgba(139,167,226,.018),inset 0 0 50px rgba(92,194,186,.08);animation-delay:-4s}
+
+@keyframes page-ambient{0%{background-position:0% 0%,100% 100%}100%{background-position:18% 12%,82% 78%}}
+@keyframes section-glow-drift{0%{transform:translate3d(-12px,-8px,0) scale(.92)}100%{transform:translate3d(24px,30px,0) scale(1.12)}}
+@keyframes experience-gradient{0%{background-position:0% 40%}100%{background-position:100% 62%}}
+@keyframes experience-grid{to{background-position:30px 30px}}
+@keyframes experience-orbit{0%{transform:translate3d(-16px,-10px,0) rotate(-8deg)}100%{transform:translate3d(20px,22px,0) rotate(12deg)}}
+@media(max-width:680px){.experience-art::after{width:190px;height:190px;right:-82px;top:-82px}.post.panel::before,.skill-overview::before,.analytics-card::before,.calendar-proof::before,.journey-card::before,.philosophy-card::before,.about-footer::before,.contact-card::before{opacity:.2}}

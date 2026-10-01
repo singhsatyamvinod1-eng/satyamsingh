@@ -49,7 +49,7 @@ const PORTFOLIO = {
   ],
   content:[
     {title:'Tropical Escape — promotion concept',type:'Concept copy',platform:'LinkedIn',campaign:2,objective:'Draft a travel-promotion idea around a festival escape.',reach:'Not shared',engagement:'Not shared',contribution:'Headline, tagline and promotional copy',image:'',link:'https://www.linkedin.com/feed/update/urn:li:activity:7284799164608090112/'},
-    {title:'Marketing clarity, strategy and AI',type:'Thought leadership',platform:'LinkedIn',campaign:0,objective:'Share a point of view on using strategy and AI to improve marketing outcomes.',reach:'Not shared',engagement:'Not shared',contribution:'Strategy-led LinkedIn post and copy',image:'',link:'https://www.linkedin.com/feed/update/urn:li:activity:7467876433764192256/'}
+    {title:'Marketing clarity, strategy and AI',type:'Thought leadership',platform:'LinkedIn',campaign:0,objective:'Share a point of view on using strategy and AI to improve marketing outcomes.',reach:'Not shared',engagement:'Not shared',contribution:'Strategy-led LinkedIn post and copy',image:'/marketing-clarity-ai.jpg',link:'https://www.linkedin.com/feed/update/urn:li:activity:7467876433764192256/'}
   ],
   metrics:[{label:'Monthly reach',value:''},{label:'Engagement growth',value:''},{label:'Engagement rate',value:''},{label:'Follower growth',value:''},{label:'Impressions',value:''},{label:'Content published',value:''},{label:'Campaigns managed',value:''},{label:'Leads generated',value:''}],
   journey:[

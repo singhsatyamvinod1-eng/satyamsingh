@@ -9,6 +9,19 @@ export const contentCalendarEvidence = {
   formats: [{name: 'Static', count: 18}, {name: 'Carousel', count: 12}, {name: 'Reel', count: 4}],
   approved: 1
 };
+
+// Counts that can be traced to the owner-shared calendar or a reviewed public post.
+// Planning counts are deliberately kept separate from account-wide performance.
+export const verifiedImpactMetrics = [
+  {label: 'Planned content slots', value: '34', source: 'IDSSPL content calendar'},
+  {label: 'Static concepts planned', value: '18', source: 'IDSSPL content calendar'},
+  {label: 'Carousel concepts planned', value: '12', source: 'IDSSPL content calendar'},
+  {label: 'Reel concepts planned', value: '4', source: 'IDSSPL content calendar'},
+  {label: 'Social channels managed', value: '4', source: 'LinkedIn profile · Instagram, Facebook, LinkedIn and X'},
+  {label: 'Calendar rows marked Done', value: '1', source: 'IDSSPL calendar Approval column'},
+  {label: 'Post impressions', value: '223', source: 'LinkedIn post · reviewed 1 Oct 2026'},
+  {label: 'Post reactions', value: '4', source: 'LinkedIn post · reviewed 1 Oct 2026'}
+];
 const PORTFOLIO = {
   profile: {
     name: 'Satyam Singh', title: 'Social Media Manager / Digital Marketer', location: 'Mumbai, India',

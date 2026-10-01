@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Avatar,usePortfolio,validExternal,photoSource} from './App.jsx';
 import {Icon} from './icons.jsx';
-import {contentCalendarEvidence} from './data.js';
+import {contentCalendarEvidence,verifiedImpactMetrics} from './data.js';
 import {PostArtwork} from './PostArtwork.jsx';
 
 function PageHead({kicker,title,description,action}){return <header className="page-head"><div><span className="tiny-caps">{kicker}</span><h1>{title}</h1><p>{description}</p></div>{action}</header>}
@@ -103,7 +103,7 @@ export function Impact(){
     {eyebrow:'AUTHORED POST · POST-LEVEL RESULT',title:'Strategy and marketing point of view',body:'My LinkedIn post about marketing clarity, strategy and AI recorded 223 impressions and 4 reactions when reviewed on 1 Oct 2026.',url:data.content[1]?.link,label:'View original post'}
   ];
   return <>
-    <PageHead kicker="THE IMPACT" title="The plan behind the posts." description="A view of the content planning I can document, with performance results kept separate." action={<EditButton kind="metrics">Edit metrics</EditButton>}/>
+    <PageHead kicker="THE IMPACT" title="The plan behind the posts." description="A view of the content planning I can document, with performance results kept separate." action={<EditButton kind="metrics">Add analytics</EditButton>}/>
     <section className="calendar-proof panel" aria-labelledby="calendar-title">
       <div className="calendar-proof-intro"><div><span className="tiny-caps">OWNER-SHARED PLANNING EVIDENCE · IDSSPL</span><h2 id="calendar-title">A calendar built for consistency.</h2><p>{calendar.name} covers {calendar.period}. It maps topics across core banking, digital payments and financial inclusion into a mix of formats.</p></div><div className="calendar-total"><strong>{calendar.slots}</strong><span>dated content slots</span></div></div>
       <div className="calendar-formats" aria-label="Planned content by format">{calendar.formats.map(format=><div className="calendar-format" key={format.name}><div><span>{format.name}</span><strong>{format.count}</strong></div><div className="calendar-track"><span style={{width:`${format.count/calendar.slots*100}%`}}/></div></div>)}</div>
@@ -112,8 +112,10 @@ export function Impact(){
     <div className="notice">The calendar documents planning output. My public LinkedIn profile and posts document experience and creative work. Campaign performance still needs platform analytics before I can claim results.</div>
     <div className="section-title"><div><span className="tiny-caps">PUBLIC EVIDENCE</span><h2>What LinkedIn documents</h2></div></div>
     <div className="impact-evidence-grid">{evidence.map(item=><article className="impact-evidence-card panel" key={item.title}><span className="tiny-caps">{item.eyebrow}</span><h3>{item.title}</h3><p className="micro">{item.body}</p>{validExternal(item.url)&&<a className="text-link" href={validExternal(item.url)} target="_blank" rel="noopener noreferrer">{item.label} <Icon name="external"/></a>}</article>)}</div>
-    <div className="section-title"><div><span className="tiny-caps">MEASURED OUTCOMES</span><h2>Results awaiting evidence</h2></div><span className="micro">No sample or estimated figures</span></div>
-    <div className="metrics-grid">{data.metrics.map(m=><div className="metric-card panel" key={m.label}><span>{m.label}</span><strong>{m.value||'—'}</strong><small>{m.value?'OWNER-ENTERED DRAFT · SOURCE & PERIOD NEEDED':'ANALYTICS SOURCE NEEDED'}</small></div>)}</div>
+    <div className="section-title"><div><span className="tiny-caps">VERIFIED COUNTS</span><h2>Real numbers from the evidence.</h2></div><span className="micro">No estimates</span></div>
+    <div className="metrics-grid verified-metrics">{verifiedImpactMetrics.map(m=><div className="metric-card panel" key={m.label}><span>{m.label}</span><strong>{m.value}</strong><small>{m.source}</small></div>)}</div>
+    <div className="notice">These figures document planning volume, managed channels and one public LinkedIn post. They are not presented as account-wide reach, growth, leads or campaign ROI.</div>
+    {data.metrics.some(m=>m.value)&&<><div className="section-title"><div><span className="tiny-caps">OWNER-ENTERED ANALYTICS</span><h2>Performance awaiting source details.</h2></div><span className="micro">Add source and date range</span></div><div className="metrics-grid">{data.metrics.filter(m=>m.value).map(m=><div className="metric-card panel" key={m.label}><span>{m.label}</span><strong>{m.value}</strong><small>OWNER-ENTERED DRAFT · SOURCE & PERIOD NEEDED</small></div>)}</div></>}
     <section className="impact-needs panel"><span className="tiny-caps">TO COMPLETE THIS SECTION</span><h2>What I need for each result</h2><ul><li>The campaign or account name, platform and date range.</li><li>An analytics screenshot or export showing the figure, plus the starting value when claiming growth.</li><li>My role in the work and a link to the live post or campaign, when available.</li><li>Permission to publish the brand name and result.</li></ul><p className="micro">Reach, impressions, engagement, follower change, clicks, leads or conversions can be added when their source and time period are clear.</p></section>
   </>;
 }
